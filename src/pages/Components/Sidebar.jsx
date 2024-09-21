@@ -4,7 +4,7 @@ import Select from "react-select"
 
 const Sidebar = () => {
   return (
-    <aside className="w-64 bg-gray-100 p-4 h-dvh">
+    <aside className="w-full bg-gray-100 p-4 ">
       <h2 className="font-bold text-xl mb-4">Choose Stack and Technology</h2>
       <Select
       className="space-y-2"

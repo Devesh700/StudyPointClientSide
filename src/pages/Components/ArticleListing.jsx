@@ -21,7 +21,7 @@ import React from "react";
 import ArticleCard from "./ArticleCard";
 import Sidebar from "./Sidebar";
 
-const ArticleListing = () => {
+const ArticleListing = ({Articles}) => {
   const articles = [
     {
       title: "Learn React in 2023",
@@ -58,15 +58,15 @@ const ArticleListing = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* <Header /> */}
-      <div className="container mx-auto p-4 flex">
+      <div className="container mx-auto sm:p-4 flex">
         {/* <Sidebar /> */}
-        <div className="flex-grow ml-8">
+        <div className="flex-grow sm:ml-8">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold">Articles</h2>
             <input
               type="text"
               placeholder="Search articles"
-              className="border p-2 rounded-md w-64"
+              className="border p-2 rounded-md sm:w-64 w-56"
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

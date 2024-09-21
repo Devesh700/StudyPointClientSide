@@ -1,6 +1,7 @@
 import React from 'react'
 
-const TiltedBanner = ({heading,description,button={text:"",link:""}}) => {
+const TiltedBanner = ({heading,description,button={text:"",link:"",handleClick:function(){}}}) => {
+  console.log(button);
   return (
     // <div className='relative  container mx-auto p-4 pt-10 lg:w-10/12 md:w-11/12 sm:w-full   my-12 h-48 hover:scale-105'>
       /* <div className="absolute opacity-95 bg-purple-950 top-0 left-0  w-full h-44"></div> */
@@ -10,7 +11,8 @@ const TiltedBanner = ({heading,description,button={text:"",link:""}}) => {
         <p>{description?description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nam, dignissimos earum itaque aliquam in voluptatum cum. Vero, iure inventore."}</p>
         </div>
         <div>
-            <button className='btn px-8 py-4 rounded-lg font-semibold text-white bg-primary w-max'>{button?.text?button.text:"Let's Begin"}</button>
+            <button className='btn px-8 py-4 rounded-lg font-semibold text-white bg-primary w-max'
+            onClick={()=>button.handleClick()}>{button?.text?button.text:"Let's Begin"}</button>
         </div>
       </div>
     // </div>

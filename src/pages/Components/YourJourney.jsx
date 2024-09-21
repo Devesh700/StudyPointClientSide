@@ -1,15 +1,16 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { GiRabbit } from "react-icons/gi";
 
-const YourJourney = () => {
-    const [fill,setfill]=useState(0);
+const YourJourney = ({completed}) => {
+    const [fill,setfill]=useState(completed?completed:0);
     const[color,setcolor]=useState();
     useEffect(()=>{
-        if(fill!==100)
-        setTimeout(()=>setfill(fill+2),100)
-    },[fill])
+        setfill(completed)
+    },[completed])
     useEffect(()=>{
-        if(fill<=25)
+        if(fill===0)
+        setcolor("transparent")
+        else if(fill<=25)
         setcolor("rgb(185 28 28)");
         else if(fill>25 && fill <=50)
         setcolor("rgb(252 165 165)");
@@ -20,13 +21,13 @@ const YourJourney = () => {
     },[fill])
   return (
     <>
-    <div className=' lg:w-1/2 md:w-5/12 mx-auto w-full flex flex-col justify-center items-center text-center'>
+    <div className='w-full flex flex-col justify-center items-center text-center'>
         <div className='size-28 rounded-full flex justify-center items-center border-slate-400  transition-all'
         style=
         {{background:`conic-gradient(${color} ${fill}%, transparent ${fill}%)`,
             boxShadow:`0px 0px 5px 2px gray` 
         }}>
-            <div className='border-slate-400 bg-white z-10 size-24 rounded-full grid justify-center items-center'><h3 className='text-2xl font-semibold'>{fill}</h3></div>
+            <div className='border-slate-400 bg-white z-10 size-24 rounded-full grid justify-center items-center'><h3 className='text-2xl font-semibold'>{fill}%</h3></div>
         </div>
         <h3 className='text-3xl'>{fill===100?"Congratulations on completing your journey of Full stack developer ":"Stay Foccussed and complete your journey"}</h3>
 

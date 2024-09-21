@@ -90,6 +90,10 @@ body{
 .custom-flexi-top-20{
   top: 11%;
 }
+
+.custom-w--80{
+  width: calc(100% - 320px);
+}
 @media screen and (max-width:866px) {
   .custom-flexi-top-20{
   top: 7%;
@@ -151,6 +155,19 @@ body{
   transition: all 200ms linear;
 }
 
+.place-custom-center-2{
+  /* position: absolute;
+  height: 90dvh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  margin: auto;
+}
+
 .skills-container{
   white-space: nowrap;
 }
@@ -203,3 +220,4 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
+
