@@ -4,7 +4,7 @@ import { FaAlignLeft } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { verifyLogin } from './utils';
 import { resetState } from '../store/slices/userSlice';
-import navIcon2 from "../assets/navIcon2.webp"
+import navIcon2 from "../assets/navicon2.webp"
 
 const NavBar = () => {
   const navigate=useNavigate();
