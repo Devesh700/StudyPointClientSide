@@ -21,6 +21,7 @@ export const getAllSkillTitle=createAsyncThunk(
             });
             const result=await response.json();
             if(!result.ok){
+                alert(result.message)
                 return thunkApi.rejectWithValue(result);
             }
             else{
@@ -38,7 +39,7 @@ export const getSkillTitleById=createAsyncThunk(
     "getSkillTitleById",
     async(_id,thunkApi)=>{
         if(!_id){
-            alert("please select which skill you want to learn");
+            //alert("please select which skill you want to learn");
             return;
         }
 
@@ -48,7 +49,8 @@ export const getSkillTitleById=createAsyncThunk(
             });
             const res=await reponse.json();
             if(!res.ok){
-                alert("not fetched")
+                alert(res.message)
+                //alert("not fetched")
                 return thunkApi.rejectWithValue(res);
             }
             else{
@@ -66,7 +68,7 @@ export const getTopicById=createAsyncThunk(
     "getTopicById",
     async(_id,thunkApi)=>{
         if(!_id){
-            alert("please select which skill you want to learn");
+            //alert("please select which skill you want to learn");
             return;
         }
 
@@ -76,7 +78,8 @@ export const getTopicById=createAsyncThunk(
             });
             const res=await reponse.json();
             if(!res.ok){
-                alert("not fetched")
+                //alert("not fetched")
+                alert(result.message)
                 return thunkApi.rejectWithValue(res);
             }
             else{
@@ -93,7 +96,7 @@ export const addSkillTitle=createAsyncThunk(
     "addSkillTitle",
     async(title,thunkApi)=>{
         if(!title){
-            alert("please provide title value");
+            //alert("please provide title value");
             return;
         }
         let token=thunkApi.getState().user?.user?.accessToken || JSON.parse(sessionStorage.getItem("user"))?.accessToken;
@@ -108,7 +111,7 @@ export const addSkillTitle=createAsyncThunk(
             })
             const result=await response.json();
             if(!result.ok){
-                alert("some error occured, check your network section");
+                //alert("some error occured, check your network section");
                 return thunkApi.rejectWithValue(result);
             }
             return result

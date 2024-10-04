@@ -6,7 +6,7 @@ import tutorialSlice from "./slices/tutorialSlice";
 const store=configureStore({
     reducer:{
         user:userSlice,
-        artcile:articleSlice,
+        article:articleSlice,
         tutorials:tutorialSlice,
     }
 })

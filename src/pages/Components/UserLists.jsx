@@ -4,6 +4,7 @@ const UserLists = ({list}) => {
   return (
     
     <div className='w-full bg-slate-100 py-4 px-2'>
+      <h3 className='text-2xl font-semibold'>This is Dummy data integrating following and follower soon</h3>
       {/* {list?.length<1?
       <h3 className='text-3xl font-bold text-center'>Empty list</h3>
       :list?.map(item=>

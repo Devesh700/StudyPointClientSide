@@ -4,7 +4,7 @@ import CreateYourJourney from './Components/CreateYourJourney'
 const Home = () => {
   return (
     <div className='w-full relative h-55vh flex justify-between py-4'>
-        <img src='src/assets/hero.png' 
+        <img src='src/assets/hero.webp' 
         className='absolute top-0 h-full w-full'/>
         <div 
         className='z-10 absolute custom-left-10 custom-flexi-top-20 lg:w-3/12 md:w-4/12 w-1/2'>

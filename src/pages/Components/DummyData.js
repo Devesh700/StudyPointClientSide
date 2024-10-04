@@ -6,4 +6,12 @@ const skillNames={
     Devops:["Docker","git","CI CD pipeline","AWS","Azure","Jenkins","Linux"]
 
 }
-export {technology,skills,skillNames}
+
+const learningStacks={
+    MERN:["HTML","CSS","JavasCript","React Js","Node Js","Express Js","MongoDB"],
+    React:["HTML","CSS","JavasCript","React Js","Tailwind","Redux","Material Ui"],
+    MEAN:["HTML","CSS","JavasCript","Angular Js","Node Js","Express Js","MongoDB"],
+    PHP:["HTML","CSS","JavasCript","PHP","Laravell","MySql"],
+    Django:["HTML","CSS","JavasCript","Python","Django","MySql"],
+}
+export {technology,skills,skillNames,learningStacks}

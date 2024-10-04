@@ -19,10 +19,10 @@ const Login = () => {
     dispatch(logInUser(data)).then((data)=>{
       console.log(data);
           if(data?.error){
-        alert(data.payload?.err?.errors || data.payload?.errors)
+        //alert(data.payload?.err?.errors || data.payload?.errors)
       }
       else{
-        alert(data.payload?.message)
+        //alert(data.payload?.message)
         localStorage.setItem("accessToken",data?.payload?.data?.accessToken)
         localStorage.setItem("refreshToken",data?.payload?.data?.refreshToken)
         sessionStorage.setItem("user",JSON.stringify(data.payload.data));

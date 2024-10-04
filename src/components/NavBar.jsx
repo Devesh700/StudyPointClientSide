@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaAlignLeft } from "react-icons/fa";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { verifyLogin } from './utils';
+import { resetState } from '../store/slices/userSlice';
 
 const NavBar = () => {
   const navigate=useNavigate();
+  const dispatch=useDispatch();
   const [activeMobileNav, setActiveMobileNav] = useState(false);
   const [hoverOptions,setHoverOptions]=useState(false);
   const [isLoggedIn,setIsLoggedIn]=useState(false);
@@ -14,6 +16,7 @@ const NavBar = () => {
     const localData = localStorage.getItem("accessToken");
 
   const logOut=()=>{
+    dispatch(resetState())
     localStorage.clear();
     sessionStorage.clear();
     handleStorageChange();
@@ -38,22 +41,24 @@ const NavBar = () => {
   useEffect(()=>{
     window.addEventListener("storage",()=> {handleStorageChange()});
      if(verifyLogin()){
+      //alert("loggedin")
         !isLoggedIn && setIsLoggedIn(true);
       }
       else{
+        //alert("logged out")
         isLoggedIn && setIsLoggedIn(false);
       } 
 
     return () => {
       window.removeEventListener("storage", handleStorageChange); // Clean up
     };
-  },[])
+  },[sessionStorage])
   return (
     <nav 
     className='w-full flex justify-between gap-2 items-center bg-primary-gradient lg:px-10 px-4 sticky top-0 z-50'>
       <div 
       className='flex justify-between items-center gap-4 md:w-2/6 relative'>
-        <img src='/src/assets/navIcon2.png' className='size-20' alt="Nav Icon" />
+        <img src='/src/assets/navIcon2.webp' className='size-20' alt="Nav Icon" />
         <FaAlignLeft
           className='sm:hidden block mobile-nav-tab text-white'
           tabIndex={0}
@@ -110,6 +115,7 @@ const NavBar = () => {
           </button>
           <button 
           className='w-full py-2  text-center hover:bg-green-600 hover:text-white transition-colors'
+          onClick={()=>navigate("/postarticle")}
           >
             Post an Article
           </button>
