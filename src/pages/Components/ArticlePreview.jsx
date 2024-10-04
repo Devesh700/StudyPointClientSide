@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { getArticleById } from '../../store/slices/articleSlice';
 import { FaEdit } from 'react-icons/fa';
 import { FaDeleteLeft } from 'react-icons/fa6';
+import hero from "../../assets/hero.webp"
 
 const ArticlePreview = ({article}) => {
   const params=useParams();

@@ -7,7 +7,7 @@ import { learningStacks } from './DummyData'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllSkillTitle } from '../../store/slices/tutorialSlice'
 import { getUserById, updateUser } from '../../store/slices/userSlice'
-
+import dummyProfile from "../../assets/dummyProfile.webp"
 
 const PersonalDetails = ({ user }) => {
   const dispatch = useDispatch();
@@ -71,7 +71,7 @@ const PersonalDetails = ({ user }) => {
   return (
     <div className='w-full flex gap-y-8 justify-center flex-wrap'>
       <div className='w-4/12 sm:min-w-48 min-w-80'>
-        <img src={User?.avtar?User?.avtar:'.././src/assets/dummyProfile.webp'} className='w-full object-cover mb-4' />
+        <img src={User?.avtar?User?.avtar:dummyProfile} className='w-full object-cover mb-4' />
         <div className='w-full'>
           <h3 className='text-3xl font-semibold my-4'>Your Courses</h3>
           {User?.journey?.map((course, index) =>

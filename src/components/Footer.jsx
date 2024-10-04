@@ -3,6 +3,7 @@ import { verifyLogin } from "./utils";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSkillTitle } from "../store/slices/tutorialSlice";
 import { useEffect } from "react";
+import navicon2 from "../assets/navicon2.webp"
 
 const Footer = () => {
   const dispatch=useDispatch();
@@ -18,7 +19,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white sm:p-4 mt-10 text-center md:px-8">
       <div className="flex justify-evenly gap-4 flex-wrap">
         <div>
-          <Link to={"/"} className="hover:text-blue-400 size-28"><img src="src/assets/navicon2.webp" className="size-28" /></Link>
+          <Link to={"/"} className="hover:text-blue-400 size-28"><img src={navicon2} className="size-28" /></Link>
           <p className="text-white">
             Subscribe to our new letter for latest trending topics and tips.
           </p>

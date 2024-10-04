@@ -15,6 +15,7 @@ import { getUserById } from '../store/slices/userSlice';
 import { getAllArticle } from '../store/slices/articleSlice';
 import ArticleListing from './Components/ArticleListing';
 import Articles from './Components/Articles';
+import hero from "../assets/hero.webp"
 
 const HomePage = () => {
   debugger
@@ -73,7 +74,7 @@ const HomePage = () => {
           {/* {course?.completed!==100 && <button className='bg-primary rounded-md px-6 py-2 text-white mx-auto grid'>Resume your journey</button>} */}
           </div>
         </div>
-        <ImageAsideCard img={"src/assets/hero.webp"} features={[
+        <ImageAsideCard img={hero} features={[
           "Comprehensive Tutorials and Articles: The web app provides in-depth tutorials and articles on various web development technologies. Users can access well-organized and categorized content, covering a wide range of topics to help them enhance their skills.",
           "User Authentication and Personalization: The platform includes user authentication, allowing users to sign up, log in, and personalize their learning experience. They can save their progress, bookmark articles, and revisit topics based on their preferences.",
           "Interactive Challenges and Study Materials: Users can engage with interactive challenges that test their knowledge and understanding of various web development topics. The web app also offers a vast collection of study materials to aid in learning."]}/>

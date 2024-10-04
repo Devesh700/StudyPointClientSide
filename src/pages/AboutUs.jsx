@@ -1,10 +1,13 @@
 import React from 'react';
-
+import frontEnd from "../assets/frontEnd.webp"
+import backEnd from "../assets/backEnd.webp"
+import devOps from "../assets/devOps.webp"
+import hero from "../assets/hero.webp"
 const About = () => {
   return (
     <div className="w-full bg-gray-100 flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full relative bg-cover bg-center h-96 flex justify-center items-center text-white" style={{ backgroundImage: 'url(/src/assets/hero-bg.jpg)' }}>
+      <section className="w-full relative bg-cover bg-center h-96 flex justify-center items-center text-white" style={{ backgroundImage: {hero} }}>
         <div className="bg-black bg-opacity-50 p-6 rounded-md text-center">
           <h1 className="text-5xl font-bold mb-4">About Us</h1>
           <p className="text-lg">Empowering developers with high-quality tutorials on Frontend, Backend, and DevOps.</p>
@@ -33,19 +36,19 @@ const About = () => {
         <h2 className="text-3xl font-bold text-center text-primary mb-10">Our Key Features</h2>
         <div className="flex flex-wrap justify-around">
           <div className="flex flex-col items-center w-full md:w-1/3 mb-6">
-            <img src="/src/assets/frontend-icon.png" alt="Frontend Development" className="h-20 mb-4"/>
+            <img src={frontEnd} alt="Frontend Development" className="h-20 mb-4"/>
             <h3 className="text-xl font-semibold mb-2">Frontend Tutorials</h3>
             <p className="text-center">Learn the latest in frontend technologies with hands-on tutorials and projects.</p>
           </div>
 
           <div className="flex flex-col items-center w-full md:w-1/3 mb-6">
-            <img src="/src/assets/backend-icon.png" alt="Backend Development" className="h-20 mb-4"/>
+            <img src={backEnd} alt="Backend Development" className="h-20 mb-4"/>
             <h3 className="text-xl font-semibold mb-2">Backend Tutorials</h3>
             <p className="text-center">Master server-side programming with in-depth tutorials on Node.js, Express, and more.</p>
           </div>
 
           <div className="flex flex-col items-center w-full md:w-1/3 mb-6">
-            <img src="/src/assets/devops-icon.png" alt="DevOps Tools" className="h-20 mb-4"/>
+            <img src={devOps} alt="DevOps Tools" className="h-20 mb-4"/>
             <h3 className="text-xl font-semibold mb-2">DevOps Guidance</h3>
             <p className="text-center">Learn how to deploy, scale, and manage applications with DevOps tools like Docker and Kubernetes.</p>
           </div>

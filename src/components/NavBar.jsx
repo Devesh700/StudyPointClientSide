@@ -4,6 +4,7 @@ import { FaAlignLeft } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { verifyLogin } from './utils';
 import { resetState } from '../store/slices/userSlice';
+import navIcon2 from "../assets/navIcon2.webp"
 
 const NavBar = () => {
   const navigate=useNavigate();
@@ -58,7 +59,7 @@ const NavBar = () => {
     className='w-full flex justify-between gap-2 items-center bg-primary-gradient lg:px-10 px-4 sticky top-0 z-50'>
       <div 
       className='flex justify-between items-center gap-4 md:w-2/6 relative'>
-        <img src='/src/assets/navIcon2.webp' className='size-20' alt="Nav Icon" />
+        <img src={navIcon2} className='size-20' alt="Nav Icon" />
         <FaAlignLeft
           className='sm:hidden block mobile-nav-tab text-white'
           tabIndex={0}

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import dummyProfile from "../../assets/dummyProfile.webp"
 const UserLists = ({list}) => {
   return (
     
@@ -9,53 +9,53 @@ const UserLists = ({list}) => {
       <h3 className='text-3xl font-bold text-center'>Empty list</h3>
       :list?.map(item=>
         <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src={item.image?item.image:'.././src/assets/dummyProfile.png'} className='size-10 rounded-full'/>
+        <img src={item.image?item.image:{dummyProfile}} className='size-10 rounded-full'/>
         <p>{item.fullName}</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       )} */}
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>
       <div className='px-6 py-4 flex justify-between items-center bg-white my-2 rounded-md'>
-        <img src='.././src/assets/dummyProfile.png' className='size-10 rounded-full'/>
+        <img src={dummyProfile} className='size-10 rounded-full'/>
         <p>First follower</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'>view</button>
       </div>

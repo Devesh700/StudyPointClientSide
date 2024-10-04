@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-
-const ImageAsideCard = ({img="src/assets/hero.webp",features=["","",""]}) => {
+import hero from "../../assets/hero.webp"
+const ImageAsideCard = ({img={hero},features=["","",""]}) => {
     const [activeFeature,setactiveFeature]=useState("f1");
     const handleMouseOver=(str)=>{
         setactiveFeature(str);
