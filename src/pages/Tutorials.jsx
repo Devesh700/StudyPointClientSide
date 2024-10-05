@@ -6,6 +6,7 @@ import { getAllSkillTitle, getSkillTitleById, getTopicById } from '../store/slic
 import { PiPaperPlaneRightBold } from "react-icons/pi";
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getUserById, updateUser } from '../store/slices/userSlice';
+import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
 
 const Tutorials = ({propsAllTitle}) => {
   debugger;
@@ -23,7 +24,8 @@ const Tutorials = ({propsAllTitle}) => {
   const [activeTopic,setActiveTopic]=useState(0);
   const [activeTitle,setActiveTitle]=useState(0);
   const [activeSubTitle,setActiveSubTitle]=useState(0);
-  const [steps,setSteps]=useState(0)
+  const [steps,setSteps]=useState(0);
+  const [visibleTitleBar,setvisibleTitleBar]=useState(false);
 const updateDetails=()=>{
 
   let userData={...user.journey?.filter(journey=>journey?.name===allTitle[0]?.journey)[0]};
@@ -80,7 +82,7 @@ useEffect(()=>{
   content=content.replace(/`/g,"")
   content=content.replace("[","")
   content=content.replace("]","")
-  content=content.replace(/,/g,"<div style='margin:1rem 0rem;'></div>")
+  // content=content.replace(/,/g,"<div style='margin:1rem 0rem;'></div>")
   console.log(content);
   setContent(content);
   setSteps(2);
@@ -93,8 +95,8 @@ useEffect(()=>{
 },[Topics])
 
   return (
-    <div className='flex justify-between'>
-      <div className='w-3/12 max-h-dvh overflow-y-scroll'>
+    <div className='flex justify-between relative overflow-hidden'>
+      <div className={`${!visibleTitleBar?"right-full":"left-0"} w-3/12 max-h-dvh overflow-y-scroll md:static fixed z-10 min-w-72 bg-slate-50 top-16`}>
 
         {!params?.id && <Sidebar/>}
         
@@ -130,7 +132,8 @@ useEffect(()=>{
       </div>
       {/* <div dangerouslySetInnerHTML={{__html:str}}/> */}
       {/* <div id='innerhtml' onLoad={putinnerHtml} onLoadedData={putinnerHtml}></div> */}
-      <div className='w-9/12'>
+      <div className='md:w-9/12 relative w-full'>
+      <div className={`${visibleTitleBar?"translate-x-72":""}  md:hidden`}>{visibleTitleBar?<FaArrowLeftLong onClick={()=>setvisibleTitleBar(false)}/>:<FaArrowRightLong onClick={()=>setvisibleTitleBar(true)}/>}</div>
       {content?<div className='p-4' dangerouslySetInnerHTML={{__html:content}}></div>:
       steps!==2?<div className='place-custom-center-2'>loading...</div>:
       <div className='place-custom-center-2'><h3 className='text-2xl font-semibold w-fit'>No Content has been added for selected skills, please send use feedback from the form mentioning topic name which is not available we will notify you once its available</h3></div>}

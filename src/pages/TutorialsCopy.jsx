@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllSkillTitle, getSkillTitleById, getTopicById } from '../store/slices/tutorialSlice';
 import { PiPaperPlaneRightBold } from "react-icons/pi";
 import { skillNames } from './Components/DummyData';
+import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
 
 const TutorialsCopy = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,7 @@ const TutorialsCopy = () => {
   const [steps, setSteps] = useState(0);
   const [skillData, setSkillData] = useState({});
   const [selectedTitleId, setSelectedTitleId] = useState(0);
+  const [visibleTitleBar,setvisibleTitleBar]=useState(false);
 
   // Helper function to normalize and check skill similarity
   const isSkillSimilar = (skill, names) => {
@@ -73,19 +76,22 @@ const TutorialsCopy = () => {
   // Update content when topics data is available
   useEffect(() => {
     if (topics?._id) {
-      const formattedContent = topics.content
-        ?.join("<div style='margin:1rem 0rem;'></div>")
-        .replace(/[`[\],]/g, "");
+       let content="";
+  topics?.content?.forEach(item=>{content+=item+"<div style='margin:1rem 0rem;'></div>"})
+  content=content.replace(/`/g,"")
+  content=content.replace("[","")
+  content=content.replace("]","")
+  // content=content.replace(/,/g,"<div style='margin:1rem 0rem;'></div>")
 
-      setContent(formattedContent);
+      setContent(content);
       setSteps(2);
     }
   }, [topics]);
 
   return (
-    <div className='flex justify-between'>
+    <div className='flex justify-between relative overflow-hidden'>
       {/* Sidebar */}
-      <div className='w-3/12 max-h-dvh overflow-y-scroll'>
+      <div className={`${!visibleTitleBar?"right-full":"left-0"} w-3/12 max-h-dvh overflow-y-scroll md:static fixed z-10 min-w-72 bg-slate-50 top-16`}>
         <Sidebar data={skillData} setParentData={setSelectedTitleId} />
 
         {/* Skill Titles and Topics */}
@@ -119,7 +125,8 @@ const TutorialsCopy = () => {
       </div>
 
       {/* Content Display */}
-      <div className='w-9/12'>
+      <div className='md:w-9/12 relative w-full'>
+      <div className={`${visibleTitleBar?"translate-x-72":""}  md:hidden`}>{visibleTitleBar?<FaArrowLeftLong onClick={()=>setvisibleTitleBar(false)}/>:<FaArrowRightLong onClick={()=>setvisibleTitleBar(true)}/>}</div>
         {content ? (
           <div className='p-4' dangerouslySetInnerHTML={{ __html: content }} />
         ) : (
