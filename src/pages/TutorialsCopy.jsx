@@ -37,7 +37,7 @@ const TutorialsCopy = () => {
 
   // Fetch all skill titles on initial load
   useEffect(() => {
-    if (!allTitles.length) {
+    if (!allTitles?.length>0) {
       dispatch(getAllSkillTitle());
     } else {
       categorizeSkills();
