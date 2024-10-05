@@ -11,7 +11,7 @@ const ArticlePreview = ({article}) => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const articleDetail=useSelector(state=>state.article.article)
-  const User=JSON.parse(sessionStorage.getItem("user")).user || useSelector(state=>state.user.user)
+  const User=JSON.parse(sessionStorage.getItem("user"))?.user || useSelector(state=>state.user.user)
   const [edit,setEdit]=useState(false);
   const [Article,setArticle]=useState();
     useEffect(()=>{

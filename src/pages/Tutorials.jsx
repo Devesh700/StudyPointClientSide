@@ -47,7 +47,7 @@ useEffect(() => {
   if (params?.id && !allTitle?.length > 0)
     dispatch(getSkillTitleById(params.id));
   if(!user?._id){
-    let userId=JSON.parse(sessionStorage.getItem("user")).user._id;
+    let userId=JSON.parse(sessionStorage.getItem("user"))?.user?._id;
     dispatch(getUserById(userId));
   }
 }, [dispatch, params.id,navState,allTitle]); // Dependency array issue here
