@@ -19,7 +19,7 @@ const TutorialsCopy = () => {
   const [steps, setSteps] = useState(0);
   const [skillData, setSkillData] = useState({});
   const [selectedTitleId, setSelectedTitleId] = useState(0);
-  const [visibleTitleBar,setvisibleTitleBar]=useState(false);
+  const [visibleTitleBar,setvisibleTitleBar]=useState(true);
 
   // Helper function to normalize and check skill similarity
   const isSkillSimilar = (skill, names) => {

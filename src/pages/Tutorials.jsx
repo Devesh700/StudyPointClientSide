@@ -25,7 +25,7 @@ const Tutorials = ({propsAllTitle}) => {
   const [activeTitle,setActiveTitle]=useState(0);
   const [activeSubTitle,setActiveSubTitle]=useState(0);
   const [steps,setSteps]=useState(0);
-  const [visibleTitleBar,setvisibleTitleBar]=useState(false);
+  const [visibleTitleBar,setvisibleTitleBar]=useState(true);
 const updateDetails=()=>{
 
   let userData={...user.journey?.filter(journey=>journey?.name===allTitle[0]?.journey)[0]};
