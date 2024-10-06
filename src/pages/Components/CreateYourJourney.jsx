@@ -68,7 +68,7 @@ const navigate=useNavigate();
           <button className='w-full py-2 bg-green-950 text-white my-2'
           type='button'
           onClick={()=>{
-            debugger
+            //debugger
             if(verifyLogin()){
               //alert("created");
               dispatch(updateUser({journey:{name:selectedjourney,skills:createJourney}})).then(data=>data?.payload && navigate(`/user/${data.payload._id}`,{state:{user:data.payload}}))  

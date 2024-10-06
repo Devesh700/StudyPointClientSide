@@ -18,7 +18,7 @@ import Articles from './Components/Articles';
 import hero from "../assets/hero.webp"
 
 const HomePage = () => {
-  debugger
+  //debugger
   const navigate=useNavigate();
   const dispatch=useDispatch();
   const [loggedIn,setloggedIn]=useState(false);
@@ -30,7 +30,7 @@ const HomePage = () => {
   },[sessionStorage])
 
   useEffect(()=>{
-    debugger;
+    //debugger;
     if(!User?._id && userId)
       dispatch(getUserById(userId))
     if(allArticle?.length===0)
@@ -81,7 +81,7 @@ const HomePage = () => {
         <TiltedBanner heading={"start posting articles today"} description={"posting articles may give you a chance to present your knowledge among other peoples, so what are you waiting for lets create an article"} button={{text:"Create article",link:"",handleClick:PostArticle}}/>
         <StickyBanners/>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

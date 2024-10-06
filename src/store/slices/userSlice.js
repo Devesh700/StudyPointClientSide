@@ -90,6 +90,8 @@ export const updateUser=createAsyncThunk(
       return thunkAPI.rejectWithValue(result);
       }
       // alert(result.message)
+      sessionStorage.setItem("user",JSON.stringify(result.data));
+      localStorage.setItem("accessToken",result?.data?.accessToken)
     return result.data?.user
     } catch (error) {
       console.log(error)

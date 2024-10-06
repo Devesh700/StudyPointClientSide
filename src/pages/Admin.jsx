@@ -71,7 +71,7 @@ const Admin = () => {
     };
 
     const handleTitleChange = (val) => {
-        debugger;
+        //debugger;
         console.log(val);
         setSelectedTitle({ label: val, value: val });
         setTitleId(title?.filter(item => item.title === val)[0]._id)
@@ -80,7 +80,7 @@ const Admin = () => {
         setlevel(levelData);
     }
     const handlelevelChange = (val) => {
-        debugger;
+        //debugger;
         setSelectedlevel({ label: val, value: val });
         let subTitle = title?.filter(item => item.title === selectedTitle.value)[0].
             subTitle?.filter(item2 => item2.name === val)[0].

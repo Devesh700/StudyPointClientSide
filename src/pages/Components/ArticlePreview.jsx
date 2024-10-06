@@ -29,7 +29,7 @@ const ArticlePreview = ({article}) => {
     },[article])
 
     useEffect(()=>{
-      debugger
+      //debugger
       if(params._id){
         dispatch(getArticleById(params._id));
       }

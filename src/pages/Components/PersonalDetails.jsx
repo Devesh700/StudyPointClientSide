@@ -21,7 +21,7 @@ const PersonalDetails = ({ user }) => {
   let Stacks = Object.keys(learningStacks)?.map(elem => ({ label: elem, value: elem }))
 
   useEffect(() => {
-    debugger
+    //debugger
     if (allTitle?.length === 0)
       dispatch(getAllSkillTitle())
     if(!User?._id)
@@ -116,9 +116,9 @@ const PersonalDetails = ({ user }) => {
             ${activeTab === "articles" ? "border-t-2 border-blue-950 bg-slate-100" : ""}`}
             onClick={() => setActiveTab("articles")}>Articles</li>
         </ul>
-        {activeTab === "following" ? <UserLists list={User.following} /> : <></>}
-        {activeTab === "follower" ? <UserLists list={User.follower} /> : <></>}
-        {activeTab === "articles" ? <ArticleListing Articles={User.articles} /> : <></>}
+        {activeTab === "following" ? <UserLists list={User?.following} /> : <></>}
+        {activeTab === "follower" ? <UserLists list={User?.follower} /> : <></>}
+        {activeTab === "articles" ? <ArticleListing Articles={User?.articles} /> : <></>}
       </div>
     </div>
   )

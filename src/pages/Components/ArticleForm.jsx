@@ -17,7 +17,7 @@ const ArticleForm = ({article,setArticle}) => {
     setArticle(pre=>({...pre,post:URL.createObjectURL(e.target.files[0])}))
   }
   const PostArticle=()=>{
-    debugger
+    //debugger
     const formdata=new FormData();
     console.log(article);
     formdata.append("technology",article.technology)

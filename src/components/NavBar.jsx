@@ -99,7 +99,7 @@ const NavBar = () => {
       {isLoggedIn?
       <div className='size-12 rounded-full bg-white flex place-items-center justify-center relative cursor-pointer'
       onMouseEnter={()=>setHoverOptions(true)}
-      onClick={()=>setHoverOptions(!true)}
+      onClick={()=>setHoverOptions(!hoverOptions)}
       onMouseLeave={()=>setHoverOptions(false)} >
         <p className='text-xl text-primary'>{sessionData?.user?.fullName?.substring(0,1)}</p>
 

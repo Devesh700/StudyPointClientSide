@@ -24,7 +24,7 @@ const ArticlePage = () => {
         <ArticleListing Articles={allArticle}/>
         <TiltedBanner heading={"start posting articles today"} description={"posting articles may give you a chance to present your knowledge among other peoples, so what are you waiting for lets create an article"} button={{text:"Create article",link:"",handleClick:PostArticle}}/>
       </main>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

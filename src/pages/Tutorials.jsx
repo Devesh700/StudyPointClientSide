@@ -9,7 +9,7 @@ import { getUserById, updateUser } from '../store/slices/userSlice';
 import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
 
 const Tutorials = ({propsAllTitle}) => {
-  debugger;
+  //debugger;
   const timeref=useRef();
     const navigate=useNavigate();
   const dispatch=useDispatch();
@@ -19,7 +19,7 @@ const Tutorials = ({propsAllTitle}) => {
   const user=useSelector(state=>state?.user?.user) || JSON.parse(sessionStorage.getItem("user")).user;
   const allTitle=propsAllTitle || navState?._id?[{...navState}]: useSelector(state=>state?.tutorials?.allTitle);
   let Topics=useSelector(state=>state?.tutorials?.Topics);
-  debugger
+  //debugger
   const [content,setContent]=useState(null);
   const [activeTopic,setActiveTopic]=useState(0);
   const [activeTitle,setActiveTitle]=useState(0);
@@ -43,7 +43,7 @@ const updateDetails=()=>{
 
 
 useEffect(() => {
-  debugger;
+  //debugger;
   if (!allTitle?.length>0)
     dispatch(getAllSkillTitle());
   if (params?.id && !allTitle?.length > 0)
@@ -56,7 +56,7 @@ useEffect(() => {
 
 
   useEffect(()=>{
-    debugger
+    //debugger
     console.log(allTitle);
     if(allTitle?.length>0 && steps===0){
       {!content &&setContent(null)};
@@ -76,7 +76,7 @@ useEffect(() => {
 useEffect(()=>{
   
   if(Topics?._id){
-    // debugger
+    // //debugger
   let content="";
   Topics?.content?.forEach(item=>{content+=item+"<div style='margin:1rem 0rem;'></div>"})
   content=content.replace(/`/g,"")

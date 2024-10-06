@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getSkillTitleById } from '../../store/slices/tutorialSlice';
 import { current } from '@reduxjs/toolkit';
+import { getUserById } from '../../store/slices/userSlice';
 
 const YourJourney = ({completed,skills,name}) => {
     const navigate=useNavigate();
@@ -30,6 +31,7 @@ const YourJourney = ({completed,skills,name}) => {
     useEffect(()=>{
         setfill(completed)
     },[completed])
+
     useEffect(()=>{
         if(fill===0)
         setcolor("transparent")
@@ -43,19 +45,21 @@ const YourJourney = ({completed,skills,name}) => {
         setcolor("rgb(21 128 61 )");
     },[fill])
 
-    useEffect(()=>{
+    useEffect(()=>{debugger
         if(skills?.length>0){
         let current=Math.round(skills?.length*(completed/100));
         setActiveSkill(current);
         // //alert(current)
         let bullets=document.querySelectorAll(`.journey-range${name} .size-4`);
+        bullets[current].removeAttribute("disabled");
+        bullets[current].ariaDisabled="false"
         for(let i=current+1;i<skills.length;i++){
             bullets[i].ariaDisabled="true";
             bullets[i].setAttribute("disabled","true");
         }
         console.log(bullets);
         }
-    },[skills,completed,User])
+    },[skills,completed,User,sessionStorage])
   return (
     <>
     <div className='w-full flex flex-col justify-center items-center text-center px-4'>

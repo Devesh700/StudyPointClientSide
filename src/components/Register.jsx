@@ -40,8 +40,8 @@ const Register = () => {
         localStorage.setItem('accessToken', data?.payload?.data?.accessToken);
         localStorage.setItem('refreshToken', data?.payload?.data?.refreshToken);
         sessionStorage.setItem('user', JSON.stringify(data.payload.data));
-        navigate(`/user/${data.payload.data.createdUser._id}`, {
-          state: { user: data.payload.data.createdUser },
+        navigate(`/user/${data.payload.data.user._id}`, {
+          state: { user: data.payload.data.user },
         });
       }
     });
