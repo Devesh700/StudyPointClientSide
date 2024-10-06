@@ -4,7 +4,9 @@ import PersonalDetails from './Components/PersonalDetails';
 
 const UserProfile = () => {
   const navigate=useNavigate();
+  debugger
     const user=useLocation().state.user;
+
     console.log(user);
   return (
     <div className=' container mx-auto sm:p-4 pt-10 lg:w-10/12 md:w-11/12 sm:w-full  my-4'>

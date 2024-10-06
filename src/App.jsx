@@ -41,11 +41,11 @@ function App() {
           <Route path="/:title/:_id" element={<ArticlePreview />}></Route>
           <Route path="/tutorials" element={<TutorialsCopy />}></Route>
           <Route path="/tutorials/:id" element={<Tutorials />}></Route>
+          <Route path='/user/:id' element={<UserProfile/>}></Route>
           {verifyLogin() && <>
             <Route path='/about' element={<About/>}></Route>
           <Route path='/contact' element={<ContactUs/>}></Route>
           <Route path='/admin' element={<Admin/>}></Route>
-          <Route path='/user/:id' element={<UserProfile/>}></Route>
           <Route path='/postarticle' element={<PostArticle/>}></Route>
           <Route path='/logs' element={<LogTable/>}></Route>
           </>}
