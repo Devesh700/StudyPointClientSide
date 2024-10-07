@@ -42,9 +42,9 @@ function App() {
           <Route path="/tutorials" element={<TutorialsCopy />}></Route>
           <Route path="/tutorials/:id" element={<Tutorials />}></Route>
           <Route path='/user/:id' element={<UserProfile/>}></Route>
-          {verifyLogin() && <>
-            <Route path='/about' element={<About/>}></Route>
+          <Route path='/about' element={<About/>}></Route>
           <Route path='/contact' element={<ContactUs/>}></Route>
+          {verifyLogin() && <>
           <Route path='/admin' element={<Admin/>}></Route>
           <Route path='/postarticle' element={<PostArticle/>}></Route>
           <Route path='/logs' element={<LogTable/>}></Route>

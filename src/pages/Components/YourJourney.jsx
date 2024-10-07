@@ -45,21 +45,28 @@ const YourJourney = ({completed,skills,name}) => {
         setcolor("rgb(21 128 61 )");
     },[fill])
 
-    useEffect(()=>{debugger
-        if(skills?.length>0){
-        let current=Math.round(skills?.length*(completed/100));
+    useEffect(() => {
+    if (skills?.length > 0) {
+        let current = Math.round(skills?.length * (completed / 100));
+        if (isNaN(current) || current < 0) current = 0;
+        if (current >= skills.length) current = skills.length - 1; // Ensure current is within bounds
+        
         setActiveSkill(current);
-        // //alert(current)
-        let bullets=document.querySelectorAll(`.journey-range${name} .size-4`);
-        bullets[current].removeAttribute("disabled");
-        bullets[current].ariaDisabled="false"
-        for(let i=current+1;i<skills.length;i++){
-            bullets[i].ariaDisabled="true";
-            bullets[i].setAttribute("disabled","true");
+
+        let bullets = document.querySelectorAll(`.journey-range${name} .size-4`);
+        if (bullets.length > 0 && current < bullets.length) {
+            bullets[current].removeAttribute("disabled");
+            bullets[current].ariaDisabled = "false";
+
+            for (let i = current + 1; i < skills.length; i++) {
+                bullets[i].ariaDisabled = "true";
+                bullets[i].setAttribute("disabled", "true");
+            }
         }
         console.log(bullets);
-        }
-    },[skills,completed,User,sessionStorage])
+    }
+}, [completed, skills, name]);
+
   return (
     <>
     <div className='w-full flex flex-col justify-center items-center text-center px-4'>
