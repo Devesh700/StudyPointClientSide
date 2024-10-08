@@ -16,7 +16,7 @@ import { getAllArticle } from '../store/slices/articleSlice';
 import ArticleListing from './Components/ArticleListing';
 import Articles from './Components/Articles';
 import hero from "../assets/hero.webp"
-import ReactAlert from '../components/utils/reactAlert';
+import ReactAlert from '../components/utils/ReactAlert';
 // import ReactAlert from '../components/utils/ReactAlert';
 
 const HomePage = () => {
