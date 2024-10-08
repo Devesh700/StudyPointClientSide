@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 // import ReactAlert from "../components/utils/ReactAlert";  // Your alert component
-import ReactAlert from "./reactAlert";
+import ReactAlert from "./ReactAlert";
 
 // Create AlertContext
 const AlertContext = createContext();  // Ensure that this is defined properly
