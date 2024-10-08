@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getSkillTitleById } from '../../store/slices/tutorialSlice';
 import { current } from '@reduxjs/toolkit';
 import { getUserById } from '../../store/slices/userSlice';
-import ReactAlert from '../../components/utils/reactAlert';
+import ReactAlert from '../../components/utils/ReactAlert';
 
 const YourJourney = ({completed,skills,name}) => {
     const navigate=useNavigate();
