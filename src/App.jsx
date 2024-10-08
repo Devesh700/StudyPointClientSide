@@ -21,6 +21,7 @@ import ContactUs from './pages/ContactUs';
 import LogTable from './pages/LogTable';
 import Footer from './components/Footer';
 import { verifyLogin } from './components/utils';
+import { AlertProvider } from './components/utils/AlertProvider';
 
 function App() {
   const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -31,6 +32,7 @@ function App() {
     <Suspense fallback={()=><div>loading...</div>} >
       <div>
       <ErrorBoundary>
+        <AlertProvider>
         <NavBar />
         <Routes>
           <Route path='*' element={<NotFoundPage/>}></Route>
@@ -53,6 +55,7 @@ function App() {
           
         </Routes>
         <Footer/>
+        </AlertProvider>
       </ErrorBoundary>
 
 

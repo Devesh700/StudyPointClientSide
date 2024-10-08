@@ -16,12 +16,15 @@ import { getAllArticle } from '../store/slices/articleSlice';
 import ArticleListing from './Components/ArticleListing';
 import Articles from './Components/Articles';
 import hero from "../assets/hero.webp"
+import ReactAlert from '../components/utils/reactAlert';
+// import ReactAlert from '../components/utils/ReactAlert';
 
 const HomePage = () => {
   //debugger
   const navigate=useNavigate();
   const dispatch=useDispatch();
   const [loggedIn,setloggedIn]=useState(false);
+  const [showAlert,setShowAlert]=useState(false);
   const User=useSelector(state=>state.user.user);
   const userId=JSON.parse(sessionStorage.getItem("user"))?.user?._id;
   const allArticle=useSelector(state=>state.article.allArticles);
@@ -37,6 +40,11 @@ const HomePage = () => {
       dispatch(getAllArticle())
     
   },[dispatch])
+
+  useEffect(()=>{
+    const timer=setTimeout(()=>setShowAlert(true,1000));
+    return ()=>clearTimeout(timer);
+  },[])
 
   const course=useMemo(()=>{
     let journey=User?.journey;
@@ -62,6 +70,7 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {showAlert && <ReactAlert message="You Should have wait for 1 minute to start the backened server as server is running on free platform it takes time to start" type="Alert"/>}
       <main className="flex-grow">
         <Hero/>
         <FeaturedSections />

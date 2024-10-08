@@ -25,7 +25,7 @@ export const registerUser = createAsyncThunk(
       // Check if the response is ok
       if (!response.ok) {
         const errorData = await response.json();
-        alert("error registering the user")
+        alert(errorData?.stack?errorData?.stack[0]:"error registering the user")
         return thunkAPI.rejectWithValue(errorData);
       }
 

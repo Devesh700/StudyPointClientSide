@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getSkillTitleById } from '../../store/slices/tutorialSlice';
 import { current } from '@reduxjs/toolkit';
 import { getUserById } from '../../store/slices/userSlice';
+import ReactAlert from '../../components/utils/reactAlert';
 
 const YourJourney = ({completed,skills,name}) => {
     const navigate=useNavigate();
@@ -21,7 +22,7 @@ const YourJourney = ({completed,skills,name}) => {
         //alert(index===activeSkill);
         dispatch(getSkillTitleById(id)).then((data)=>{
             if(data?.error)
-            alert("error accessing file");
+            <ReactAlert type='Error' message='Error accessing file'/>;
             else{
                 console.log(data)
                 navigate(`/tutorials/${data.payload?._id}`, {state:{...data.payload,progress:true,journey:name,disabled:index===activeSkill}})
