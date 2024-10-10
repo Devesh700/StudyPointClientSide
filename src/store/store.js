@@ -8,6 +8,10 @@ const store=configureStore({
         user:userSlice,
         article:articleSlice,
         tutorials:tutorialSlice,
-    }
+    },
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 })
 export default store;

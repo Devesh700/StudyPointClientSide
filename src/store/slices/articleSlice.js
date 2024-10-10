@@ -90,6 +90,81 @@ export const getAllArticle=createAsyncThunk(
     }
 )
 
+export const addLike=createAsyncThunk(
+    "addlike",
+    async (data,thunkApi)=>{
+        if(!data?.articleId || !data?.title){
+            return alert("Didn't receive article details which you want to like");
+        }
+
+        let token=thunkApi.getState().user?.user?.accessToken || JSON.parse(sessionStorage.getItem("user"))?.accessToken;
+        if(!token){
+            alert("please log in to continue liking articles");
+            return;
+        }
+
+        try{
+            let result=await fetch(`${baseUrl}/${version}/like/`,{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body:JSON.stringify(data)
+            })
+            if(!result.ok){
+                alert(result?.message);
+                return thunkApi.rejectWithValue(result);
+            }
+            result=await result.json();
+            
+            console.log(result);
+            return result
+        }   catch(err){
+            alert("error occured please try again")
+            return thunkApi.rejectWithValue(err);
+        }
+    }    
+)
+
+export const removeLike=createAsyncThunk(
+    "removelike",
+    async (data,thunkApi)=>{
+        if(!data?.articleId || !data?.title){
+            return alert("Didn't receive article details which you want to like");
+        }
+
+        let token=thunkApi.getState().user?.user?.accessToken || JSON.parse(sessionStorage.getItem("user"))?.accessToken;
+        if(!token){
+            alert("please log in to continue liking articles");
+            return;
+        }
+
+        try{
+            let result=await fetch(`${baseUrl}/${version}/like`,{
+                method:"delete",
+                headers:{
+                    "Content-Type":"application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body:JSON.stringify(data)
+            })
+            if(!result.ok){
+                alert(result?.message);
+                return thunkApi.rejectWithValue(result);
+            }
+            result=await result.json();
+            
+            console.log(result);
+            return result;
+        }   catch(err){
+            alert("error occured please try again")
+            return thunkApi.rejectWithValue(err);
+        }
+    }    
+)
+
+
 const articleSlice=createSlice(
     {
         name:"articles",
@@ -133,6 +208,30 @@ const articleSlice=createSlice(
                 state.loading=true;
         })
             .addCase(getAllArticle.rejected,(state,action)=>{
+                state.error=action.error;
+                state.loading=false;
+        })
+            .addCase(addLike.fulfilled,(state,action)=>{
+                state.article=action.payload;
+                state.error=null;
+                state.loading=false;
+        })
+            .addCase(addLike.pending,(state,action)=>{
+                state.loading=true;
+        })
+            .addCase(addLike.rejected,(state,action)=>{
+                state.error=action.error;
+                state.loading=false;
+        })
+            .addCase(removeLike.fulfilled,(state,action)=>{
+                state.article=action.payload;
+                state.error=null;
+                state.loading=false;
+        })
+            .addCase(removeLike.pending,(state,action)=>{
+                state.loading=true;
+        })
+            .addCase(removeLike.rejected,(state,action)=>{
                 state.error=action.error;
                 state.loading=false;
         })

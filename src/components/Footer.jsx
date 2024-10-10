@@ -8,13 +8,17 @@ import navicon2 from "../assets/navicon2.webp"
 const Footer = () => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
-  const allTitle=useSelector(state=>state?.tutorials?.allTitle);
+  const allTitle=useSelector(state=>state?.tutorials?.allTitle) || [];
   const sessionData=JSON.parse(sessionStorage.getItem("user"))?.user;
 
     useEffect(()=>{
     if(!allTitle?.length>0)
       dispatch(getAllSkillTitle());
   },[dispatch])
+
+  useEffect(()=>{
+    console.log(allTitle);
+  },[allTitle])
   return (
     <footer className="bg-gray-900 text-white sm:p-4 mt-10 text-center md:px-8">
       <div className="flex justify-evenly gap-4 flex-wrap">

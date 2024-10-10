@@ -55,7 +55,7 @@ const Admin = () => {
         let topicData = { name, content, titleId: selectedTitleId, level: selectedlevel }
         console.log(topicData);
         //alert("success")
-        const response = await fetch("https://wbalay.onrender.com/api/v1/topics/add", {
+        const response = await fetch("http://localhost:4444/api/v1/topics/add", {
             method: "POST",
             body: JSON.stringify(topicData),
             headers: {

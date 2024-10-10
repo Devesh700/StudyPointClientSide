@@ -20,7 +20,7 @@ body{
   background-repeat: no-repeat;
   background-position: center;
   object-fit: cover;
-  background-size: 100%;
+  background-size: cover;
 }
 /* body{
           background-image: linear-gradient(112.84deg,var(--primary-color),#737373);

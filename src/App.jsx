@@ -22,13 +22,22 @@ import LogTable from './pages/LogTable';
 import Footer from './components/Footer';
 import { verifyLogin } from './components/utils';
 import { AlertProvider } from './components/utils/AlertProvider';
+import { useSelector } from 'react-redux';
+import Hero from './pages/Components/Hero';
 
 function App() {
   const baseUrl = import.meta.env.VITE_BASE_URL;
   const version = import.meta.env.VITE_VERSION;
+  const Errors={
+    userSlice:useSelector(state=>state?.user?.error),
+    articleSlice:useSelector(state=>state?.article?.error),
+    tutorialSlice:useSelector(state=>state?.tutorials?.error),
+  }
 
+  if(Errors?.userSlice || Errors?.articleSlice || Errors?.tutorialSlice){
+    return <Hero title='Error Loading Page' description='Sorry for the incovenience server is down, we are working on it.' button={{display:false}} style={{height:"100dvh",display:"flex",alignItems:"center",justifyContent:"center", color:"red", fontWeight:"bolder"}}/>
+  }
   return (
-
     <Suspense fallback={()=><div>loading...</div>} >
       <div>
       <ErrorBoundary>

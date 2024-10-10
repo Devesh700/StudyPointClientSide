@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState={
     SkillTitle:{},
     allTitle:[],
+    allTitleFetchTime:null,
     subTitle:[],
     Topics:[],
     loading:false,
@@ -15,6 +16,15 @@ const version = import.meta.env.VITE_VERSION;
 export const getAllSkillTitle=createAsyncThunk(
     "getallSkillTitle",
     async(_,thunkApi)=>{
+        const state=thunkApi.getState().tutorials;
+        console.log(state);
+        const lastFetchedTime=state.allTitleFetchTime;
+        const currentTime=new Date().getTime();
+        const difference=currentTime-lastFetchedTime;
+        console.log(lastFetchedTime," - ",currentTime,"= ",difference)
+
+        if(lastFetchedTime && difference<2000)
+        return state.allTitle;
         try {
             const response=await fetch(`${baseUrl}/${version}/skilltitle/get/all`,{
                 method:"GET"
@@ -162,6 +172,7 @@ const tutorialSlice=createSlice({
         .addCase(getAllSkillTitle.fulfilled,(state,action)=>{
             console.log(action.payload)
             state.allTitle=action.payload
+            state.allTitleFetchTime=new Date().getTime();
             state.loading=false
             state.error=null
         })
@@ -169,7 +180,6 @@ const tutorialSlice=createSlice({
             state.loading=true
         })
         .addCase(getAllSkillTitle.rejected,(state,action)=>{
-            state.allTitle=action.payload
             state.loading=false
             state.error=action.error
         })

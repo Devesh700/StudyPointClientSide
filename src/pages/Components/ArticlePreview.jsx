@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
-import { getArticleById } from '../../store/slices/articleSlice';
+import { addLike, getArticleById, removeLike } from '../../store/slices/articleSlice';
 import { FaEdit } from 'react-icons/fa';
-import { FaDeleteLeft } from 'react-icons/fa6';
+import { FaDeleteLeft, FaHeart } from 'react-icons/fa6';
 import hero from "../../assets/hero.webp"
+import { verifyLogin } from '../../components/utils';
 
 const ArticlePreview = ({article}) => {
   const params=useParams();
@@ -13,7 +14,9 @@ const ArticlePreview = ({article}) => {
   const articleDetail=useSelector(state=>state.article.article)
   const User=JSON.parse(sessionStorage.getItem("user"))?.user || useSelector(state=>state.user.user)
   const [edit,setEdit]=useState(false);
+  const [liked,setliked]=useState(false);
   const [Article,setArticle]=useState();
+  const timeRef=useRef();
     useEffect(()=>{
         if(Article?.description!==""){
             let description=document.getElementById("description")
@@ -29,8 +32,9 @@ const ArticlePreview = ({article}) => {
     },[article])
 
     useEffect(()=>{
-      //debugger
+      debugger
       if(params._id){
+        if(!articleDetail?._id || articleDetail?._id!==params._id)
         dispatch(getArticleById(params._id));
       }
     },[params,dispatch])
@@ -43,9 +47,79 @@ const ArticlePreview = ({article}) => {
       else
       edit && setEdit(false)
     },[articleDetail])
+
+    useEffect(()=>{
+      // debugger
+      if(!timeRef.current){
+      const liked=Article?.likes?.find(elem=>elem?.likedBy===User?._id);      
+      setliked(liked?true:false);
+      }
+    },[Article,User])
+
+    const handleLike = () => {
+      if(!verifyLogin()){
+        alert("please log in to continue liking posts");
+        return ;
+      }
+  const prevLiked = liked; // Capture the previous like status
+  setliked(!liked); // Optimistically update the like status
+
+  if (timeRef.current) {
+    clearTimeout(timeRef.current);
+  }
+
+  // Use a timeout for the API call (optional, but gives smoother UX)
+  timeRef.current = setTimeout(() => {
+    // Based on previous like status, make the respective API call
+    const liked=Article?.likes?.find(elem=>elem?.likedBy===User?._id);      
+    if (!prevLiked && !liked) {
+      // Article was not liked, so add a like
+      dispatch(addLike({ articleId: Article?._id, title: Article?.title }))
+        .unwrap()
+        .then(data => {
+          if (data?._id) {
+            // Update the article with the new like data
+            setArticle(data);
+          } else {
+            // If there's no valid response, revert the optimistic update
+            setliked(prevLiked);
+          }
+        })
+        .catch(err => {
+          console.error("Add like error: ", err);
+          // If there's an error, revert the optimistic update
+          setliked(prevLiked);
+        });
+    } else if(liked){
+      // Article was liked, so remove the like
+      dispatch(removeLike({ articleId: Article?._id, title: Article?.title }))
+        .unwrap()
+        .then(data => {
+          if (data?._id) {
+            // Update the article with the new like data
+            setArticle(data);
+          } else {
+            // If there's no valid response, revert the optimistic update
+            setliked(prevLiked);
+          }
+        })
+        .catch(err => {
+          console.error("Remove like error: ", err);
+          // If there's an error, revert the optimistic update
+          setliked(prevLiked);
+        });
+    }
+  }, 1000); // Adjust the delay to suit the UX, you can remove it for instant calls
+};
+
+
+
+      
+
   return (
     <div>
-      <div className='w-full bg-primary-gradient h-64'>
+      <div className='w-full bg-primary-gradient h-64 relative'>
+        <button className='absolute md:right-8 right-1 md:top-8 top-2 text-white' onClick={()=>handleLike()}><FaHeart className={!liked?'text-white text-3xl':'text-red-600 text-4xl'}/>{Article?.likes?.length} </button>
         {/* {edit && <button className='text-white text-3xl font-bold absolute right-5'
         onClick={()=>navigate("/postarticle",{state:{article:Article}})}><FaDeleteLeft/></button>} */}
         <h3 className='text-balance text-3xl font-semibold text-center text-white py-4'>{Article?.title!==""?Article?.title:"This is Title"}</h3>
