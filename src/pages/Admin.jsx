@@ -62,6 +62,14 @@ const Admin = () => {
                 "Content-Type": "application/json",
                 Authorization: token
             }
+        }) ||
+        await fetch("https://wbalay.onrender.com/api/v1/topics/add", {
+            method: "POST",
+            body: JSON.stringify(topicData),
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: token
+            }
         })
         // if (newSubtitle) {
         //     const newOption = { label: newSubtitle, value: newSubtitle.toLowerCase().replace(/\s/g, '_') };

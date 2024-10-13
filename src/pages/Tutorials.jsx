@@ -16,7 +16,7 @@ const Tutorials = ({propsAllTitle}) => {
   const params=useParams();
   const navState=useLocation().state;
   const tutorial=useSelector(state=>state?.tutorials?.SkillTitle);
-  const user=useSelector(state=>state?.user?.user) || JSON.parse(sessionStorage.getItem("user")).user;
+  const user=useSelector(state=>state?.user?.user) || JSON.parse(sessionStorage.getItem("user"))?.user;
   const allTitle=propsAllTitle || navState?._id?[{...navState}]: useSelector(state=>state?.tutorials?.allTitle);
   let Topics=useSelector(state=>state?.tutorials?.Topics);
   //debugger
@@ -43,13 +43,14 @@ const updateDetails=()=>{
 
 
 useEffect(() => {
-  //debugger;
+  debugger;
   if (!allTitle?.length>0)
     dispatch(getAllSkillTitle());
   if (params?.id && !allTitle?.length > 0)
     dispatch(getSkillTitleById(params.id));
   if(!user?._id){
     let userId=JSON.parse(sessionStorage.getItem("user"))?.user?._id;
+    if(userId)
     dispatch(getUserById(userId));
   }
 }, [dispatch, params.id,navState,allTitle]); // Dependency array issue here

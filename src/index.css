@@ -250,3 +250,45 @@ body{
 
 
 
+.bg-overlay{
+  background-color: rgba(250, 248, 250, 0.7);
+}
+
+.loading-dots-container {
+  display: flex; /* Ensures the dots are aligned horizontally */
+  justify-content: center; /* Centers the dots */
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.loading-dots-container span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: black;
+  margin: 0 2px; /* Adds some space between the dots */
+  animation: loading 1s linear infinite; /* Set animation here */
+}
+
+.loading-dots-container span:nth-child(1) {
+  animation-delay: 0s; /* No delay for the first dot */
+}
+
+.loading-dots-container span:nth-child(2) {
+  animation-delay: 0.2s; /* 200ms delay for the second dot */
+}
+
+.loading-dots-container span:nth-child(3) {
+  animation-delay: 0.4s; /* 400ms delay for the third dot */
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

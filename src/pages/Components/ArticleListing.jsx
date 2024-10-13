@@ -86,6 +86,7 @@ const ArticleListing = ({Articles}) => {
                 description={article?._id?.description}
                 image={article?._id?.post?article?._id?.post:article?.post?article.post:"https://via.placeholder.com/300"}
                 link={article?._id}
+                postedBy={article?.postedBy}
               />
             ))}
           </div>

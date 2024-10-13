@@ -11,7 +11,7 @@ const ReactAlert = ({
 }) => {
     const [display,setdisplay]=useState(true);
   return (
-    <div className={`${className} bg-slate-100 shadow-sm shadow-slate-100 z-50 transition-all fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-xl px-4 py-6 flex-col justify-around items-center md:w-80 w-72 ${display?"flex":"hidden"}`} style={style}>
+    <div className={`${className} bg-slate-100 shadow-sm shadow-slate-100 z-40 transition-all fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-xl px-4 py-6 flex-col justify-around items-center md:w-80 w-72 ${display?"flex":"hidden"}`} style={style}>
       <h3 className='text-3xl font-bold '>
         {type==="Alert" && <CiCircleAlert/> || type==="Error" && <AiOutlineClose/> || type==="Success" && <MdDone/>}
       </h3>

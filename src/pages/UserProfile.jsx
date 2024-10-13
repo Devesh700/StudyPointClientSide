@@ -4,7 +4,7 @@ import PersonalDetails from './Components/PersonalDetails';
 
 const UserProfile = () => {
   const navigate=useNavigate();
-  debugger
+  //debugger
     const user=useLocation().state.user;
 
     console.log(user);
