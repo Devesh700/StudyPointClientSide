@@ -106,7 +106,7 @@ const NavBar = () => {
         {hoverOptions && <div className='absolute top-8 right-8 bg-white w-36 rounded-md overflow-hidden '>
           <button 
           className='w-full py-2  text-center  hover:bg-slate-600 hover:text-white transition-colors'
-          onClick={()=>navigate(`/user/${sessionData?.user?._id}`,{state:{user:sessionData?.user}})}>
+          onClick={()=>navigate(`/user/${sessionData?.user?.fullName}/${sessionData?.user?._id}`,{state:{user:sessionData?.user}})}>
             My Profile
           </button>
           <button 

@@ -13,7 +13,7 @@ const ArticleCard = ({ title, description, image,link,postedBy }) => {
         <Link to={`/${title}/${link}`} className="text-blue-500 mt-4 inline-block hover:underline">Read More</Link>
       </div>
       <button className="size-16 rounded-full bg-gray-200 text-primary"
-      onClick={()=>navigate(`/user/${postedBy._id}`,{state:{user:postedBy}})}>
+      onClick={()=>navigate(`/user/${postedBy.fullName}/${postedBy._id}`,{state:{user:postedBy}})}>
         {postedBy?.fullName?.slice(0,1)}
       </button>
     </div>

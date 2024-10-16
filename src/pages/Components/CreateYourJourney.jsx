@@ -71,7 +71,7 @@ const navigate=useNavigate();
             //debugger
             if(verifyLogin()){
               //alert("created");
-              dispatch(updateUser({journey:{name:selectedjourney,skills:createJourney}})).then(data=>data?.payload && navigate(`/user/${data.payload._id}`,{state:{user:data.payload}}))  
+              dispatch(updateUser({journey:{name:selectedjourney,skills:createJourney}})).then(data=>data?.payload && navigate(`/user/${data?.payload?.fullName}/${data?.payload?._id}`,{state:{user:data.payload}}))  
             }
             else{
               navigate("/login")  

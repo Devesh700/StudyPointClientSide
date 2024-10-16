@@ -40,7 +40,7 @@ const Footer = () => {
               <Link to={"/tutorials"}>Tutorials</Link>
               <Link to={"/"}>Home</Link>
               {!verifyLogin()?<Link to={"/login"}>login</Link>:<button className="px-0 w-fit"
-              onClick={()=>navigate(`/user/${sessionData._id}`,{state:{user:sessionData}})} to={"/"}>MyProfile</button>}
+              onClick={()=>navigate(`/user/${sessionData.fullName}/${sessionData._id}`,{state:{user:sessionData}})} to={"/"}>MyProfile</button>}
               <Link to={"/contact"}>Contact</Link>
               {/* <Link to={"/"}></Link> */}
           </nav>

@@ -14,7 +14,7 @@ const UserLists = ({list}) => {
         {item?.avtar?<img src={item.avtar?item.avtar:{dummyProfile}} className='size-10 rounded-full bg-gray-300'/>:<div className='size-10 rounded-full bg-gray-300 flex justify-center items-center'>{item?.fullName?.slice(0,1)}</div>}
         <p>{item.fullName}</p>
         <button className='px-6 py-2 rounded-lg bg-primary-lighter'
-        onClick={()=>navigate(`/user/${item._id}`,{state:{user:item}})}>view</button>
+        onClick={()=>navigate(`/user/${item.fullName}/${item._id}`,{state:{user:item}})}>view</button>
       </div>
       )}       </div>
   )

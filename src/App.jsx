@@ -55,7 +55,7 @@ function App() {
           <Route path="/:title/:_id" element={<ArticlePreview />}></Route>
           <Route path="/tutorials" element={<TutorialsCopy />}></Route>
           <Route path="/tutorials/:id" element={<Tutorials />}></Route>
-          <Route path='/user/:id' element={<UserProfile/>}></Route>
+          <Route path='/user/:fullName/:id' element={<UserProfile/>}></Route>
           <Route path='/about' element={<About/>}></Route>
           <Route path='/contact' element={<ContactUs/>}></Route>
           {verifyLogin() && <>

@@ -21,6 +21,8 @@ const fetchWithRetry = async (url, options, maxRetries, thunkAPI) => {
       // Check if the response is ok
       if (!response.ok) {
         const errorData = await response.json();
+        console.log(errorData)
+        alert(errorData.message);
         return thunkAPI.rejectWithValue(errorData);
       }
 

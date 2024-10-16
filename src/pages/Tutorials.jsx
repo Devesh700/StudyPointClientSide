@@ -38,7 +38,7 @@ const updateDetails=()=>{
   userData.completed=(userData.completed+userData.skills.length)>=100?100:userData.completed
   console.log(userData);
   dispatch(updateUser({journey:{name:userData.name,skills:userData.skills,completed:userData.completed}}))
-  navigate(`/user/${user._id}`,{state:{user:user}})
+  navigate(`/user/${user.fullName}/${user._id}`,{state:{user:user}})
 }
 
 
