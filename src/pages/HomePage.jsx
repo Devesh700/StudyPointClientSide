@@ -43,6 +43,7 @@ const HomePage = () => {
 
   useEffect(()=>{
     const timer=setTimeout(()=>setShowAlert(true,1000));
+    document.title="WebAlay"
     return ()=>clearTimeout(timer);
   },[])
 

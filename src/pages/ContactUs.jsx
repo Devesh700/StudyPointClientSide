@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
@@ -19,6 +19,10 @@ const ContactUs = () => {
     
     e.target.reset();
   };
+
+  useEffect(()=>{
+    document.title="Contact Us | WebAlay"
+  },[])
 
   return (
     <div className="w-full bg-gray-100 flex flex-col items-center py-12">

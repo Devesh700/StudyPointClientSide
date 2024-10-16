@@ -25,7 +25,7 @@ const YourJourney = ({completed,skills,name}) => {
             <ReactAlert type='Error' message='Error accessing file'/>;
             else{
                 console.log(data)
-                navigate(`/tutorials/${data.payload?._id}`, {state:{...data.payload,progress:true,journey:name,disabled:index===activeSkill}})
+                navigate(`/${data?.payload?.title}/notes/${data.payload?._id}`, {state:{...data.payload,progress:true,journey:name,disabled:index===activeSkill}})
             }
         })
     }

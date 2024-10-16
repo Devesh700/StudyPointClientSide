@@ -51,7 +51,7 @@ const Footer = () => {
           <nav className="  mt-2 flex flex-col text-justify">
             {allTitle?.slice(0,5)?.map((material)=>
             <button className="px-0 w-fit " to={"/"}
-            onClick={()=>navigate(`/tutorials/${material?._id}`, {state:material})}>{material?.title}</button>)}
+            onClick={()=>navigate(`/${material?.title}/notes/${material?._id}`, {state:material})}>{material?.title}</button>)}
           </nav>
         </div>
 

@@ -44,6 +44,7 @@ const updateDetails=()=>{
 
 useEffect(() => {
  //debugger;
+ document.title="Tutorials | WebAlay"
   if (!allTitle?.length>0)
     dispatch(getAllSkillTitle());
   if (params?.id && !allTitle?.length > 0)

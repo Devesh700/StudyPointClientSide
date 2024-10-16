@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ArticleForm from './Components/ArticleForm'
 import ArticlePreview from './Components/ArticlePreview'
 import { useLocation } from 'react-router-dom'
@@ -8,6 +8,10 @@ const PostArticle = () => {
   // console.log(Article);
     const [article,setArticle]=useState({title:"",technology:"",description:"",post:""})
     console.log(article)
+
+    useEffect(()=>{
+      document.title="Post Article | WebAlay"
+    },[])
   return (
     <div className='flex flex-wrapz'>
         <div className='sm:w-80 w-full'>

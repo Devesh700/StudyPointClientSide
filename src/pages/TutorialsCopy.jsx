@@ -40,6 +40,7 @@ const TutorialsCopy = () => {
 
   // Fetch all skill titles on initial load
   useEffect(() => {
+    document.title="Tutorials | WebAlay"
     if (!allTitles?.length>0) {
       dispatch(getAllSkillTitle());
     } else {

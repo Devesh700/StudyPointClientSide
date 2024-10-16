@@ -95,7 +95,7 @@ let Devops = allTitle?.filter(skill => isSimilar(skill.title, skillNames["Devops
         <p className="text-lg">Get Started with</p>
         </div>
         <div className="px-6 py-4 w-full">
-        <button onClick={()=>navigate(`/tutorials/${material?._id}`, {state:material})} className="text-orange-300 text-base hover:underline items-center gap-4 flex">Explore <FaLink/></button>
+        <button onClick={()=>navigate(`/${material?.title}/notes/${material?._id}`, {state:material})} className="text-orange-300 text-base hover:underline items-center gap-4 flex">Explore <FaLink/></button>
         </div>
       </div>
             ))}

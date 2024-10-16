@@ -12,6 +12,7 @@ const ArticlePage = () => {
   const allArticle=useSelector(state=>state.article.allArticles);
 
   useEffect(()=>{
+    document.title="Articles | WebAlay"
     if(allArticle?.length===0)
     dispatch(getAllArticle())
   },[dispatch])
