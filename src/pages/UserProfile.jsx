@@ -1,11 +1,13 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import React, { useMemo } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import PersonalDetails from './Components/PersonalDetails';
 
 const UserProfile = () => {
   const navigate=useNavigate();
+  const params=useParams();
+  const location=useLocation();
   //debugger
-    const user=useLocation().state.user;
+    const user=useMemo(()=>location.state?.user || {_id:params?.id},[params]);
 
     console.log(user);
   return (

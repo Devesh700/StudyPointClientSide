@@ -32,7 +32,7 @@ const ArticlePreview = ({article}) => {
     },[article])
 
     useEffect(()=>{
-      debugger
+     //debugger
       if(params._id){
         if(!articleDetail?._id || articleDetail?._id!==params._id)
         dispatch(getArticleById(params._id));
@@ -49,7 +49,7 @@ const ArticlePreview = ({article}) => {
     },[articleDetail])
 
     useEffect(()=>{
-      // debugger
+      ////debugger
       if(!timeRef.current){
       const liked=Article?.likes?.find(elem=>elem?.likedBy===User?._id);      
       setliked(liked?true:false);

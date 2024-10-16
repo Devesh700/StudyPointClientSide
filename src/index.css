@@ -292,3 +292,7 @@ body{
     transform: scale(1);
   }
 }
+
+.z-99{
+  z-index: 99;
+}

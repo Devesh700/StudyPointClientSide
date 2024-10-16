@@ -14,7 +14,7 @@ import { TbMessageCircleCancel } from 'react-icons/tb'
 // import { mergeAlias } from 'vite'
 
 const PersonalDetails = ({ user }) => {
-  // debugger
+  ////debugger
   const dispatch = useDispatch();
   const allTitle = useSelector(state => state.tutorials.allTitle)
   const [myDetails,setMyDetails]=useState({
@@ -52,12 +52,12 @@ const PersonalDetails = ({ user }) => {
   let Stacks = Object.keys(learningStacks)?.map(elem => ({ label: elem, value: elem }))
 
   useEffect(() => {
-    //debugger
+   //debugger
     if (allTitle?.length === 0)
       dispatch(getAllSkillTitle())
     if (user?._id)
       dispatch(getUserById(user._id));
-  }, [dispatch, user])
+  }, [dispatch, user?._id])
 
 
   useEffect(() => {

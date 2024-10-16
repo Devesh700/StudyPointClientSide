@@ -126,7 +126,7 @@ const TutorialsCopy = () => {
 
       {/* Content Display */}
       <div className='md:w-9/12 relative w-full'>
-      <div className={`${visibleTitleBar?"translate-x-72":""}  md:hidden`}>{visibleTitleBar?<FaArrowLeftLong onClick={()=>setvisibleTitleBar(false)}/>:<FaArrowRightLong onClick={()=>setvisibleTitleBar(true)}/>}</div>
+      <div className={`${visibleTitleBar?"translate-x-72":""} fixed size-6 border-2 border-solid grid justify-center items-center text-xl z-10 text-white bg-gray-600 md:hidden`}>{visibleTitleBar?<FaArrowLeftLong onClick={()=>setvisibleTitleBar(false)}/>:<FaArrowRightLong onClick={()=>setvisibleTitleBar(true)}/>}</div>
         {content ? (
           <div className='p-4' dangerouslySetInnerHTML={{ __html: content }} />
         ) : (

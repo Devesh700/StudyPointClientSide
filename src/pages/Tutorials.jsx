@@ -43,7 +43,7 @@ const updateDetails=()=>{
 
 
 useEffect(() => {
-  debugger;
+ //debugger;
   if (!allTitle?.length>0)
     dispatch(getAllSkillTitle());
   if (params?.id && !allTitle?.length > 0)
@@ -134,7 +134,7 @@ useEffect(()=>{
       {/* <div dangerouslySetInnerHTML={{__html:str}}/> */}
       {/* <div id='innerhtml' onLoad={putinnerHtml} onLoadedData={putinnerHtml}></div> */}
       <div className='md:w-9/12 relative w-full'>
-      <div className={`${visibleTitleBar?"translate-x-72":""}  md:hidden`}>{visibleTitleBar?<FaArrowLeftLong onClick={()=>setvisibleTitleBar(false)}/>:<FaArrowRightLong onClick={()=>setvisibleTitleBar(true)}/>}</div>
+      <div className={`${visibleTitleBar?"translate-x-72":""} fixed size-6 border-2 border-solid grid justify-center items-center text-xl z-10 text-white bg-gray-600 md:hidden`}>{visibleTitleBar?<FaArrowLeftLong onClick={()=>setvisibleTitleBar(false)}/>:<FaArrowRightLong onClick={()=>setvisibleTitleBar(true)}/>}</div>
       {content?<div className='p-4' dangerouslySetInnerHTML={{__html:content}}></div>:
       steps!==2?<div className='place-custom-center-2'>loading...</div>:
       <div className='place-custom-center-2'><h3 className='text-2xl font-semibold w-fit'>No Content has been added for selected skills, please send use feedback from the form mentioning topic name which is not available we will notify you once its available</h3></div>}
